@@ -5,7 +5,7 @@ const schema = buildSchema(`
   type User {
     id: ID
     username: String
-    age: Int
+    age: String
     posts: [Post]
   }
   type Post {
@@ -17,7 +17,7 @@ const schema = buildSchema(`
   input UserInput {
     id: ID
     username: String!
-    age: Int!
+    age: String!
     posts: [PostInput] 
   }
   input PostInput {
@@ -32,6 +32,7 @@ const schema = buildSchema(`
   }
   type Mutation {
     createUser(input: UserInput): User
+    deleteUser(id: ID): [User]
   }
 `);
 
